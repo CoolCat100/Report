@@ -29,12 +29,16 @@ public class Report {
         list.add(report7);
         list.add(report8);
         long startTime = System.currentTimeMillis();
-//        System.out.println(reportHistory(list, "no_punkz", 3));
-        reportHistory(list, "no_punkz", 3);
+        String result = "";
+        for (int i = 0; i < 10000000; i++) {
+            result = reportHistory(list, "no_punkz", 3);
+        }
         long endTime = System.currentTimeMillis();
         long timeElapsed = endTime - startTime;
-        System.out.println(timeElapsed);
-
+        double medium = (double) timeElapsed / 10000000;
+        System.out.println(medium);
+        System.out.println(result);
+//        System.out.println(reportHistory(list, "no_punkz", 3));
     }
 
     Report(Long id, String studentUserName, Integer hours, LocalDate date, String title) {
